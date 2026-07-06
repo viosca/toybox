@@ -515,7 +515,7 @@ int dev_minor(int dev)
   return ((dev&0xfff00000)>>12)|(dev&0xff);
 #elif defined(__APPLE__)
   return dev&0xffffff;
-#elif defined(__FreeBSD__) || defined(__OpenBSD__)
+#elif defined(__FreeBSD__) || defined(__OpenBSD__) || defined(TOYBOX_VENDOR_POSIX)
   return minor(dev);
 #else
 #error
@@ -528,7 +528,7 @@ int dev_major(int dev)
   return (dev&0xfff00)>>8;
 #elif defined(__APPLE__)
   return (dev>>24)&0xff;
-#elif defined(__FreeBSD__) || defined(__OpenBSD__)
+#elif defined(__FreeBSD__) || defined(__OpenBSD__) || defined(TOYBOX_VENDOR_POSIX)
   return major(dev);
 #else
 #error
@@ -541,7 +541,7 @@ int dev_makedev(int major, int minor)
   return (minor&0xff)|((major&0xfff)<<8)|((minor&0xfff00)<<12);
 #elif defined(__APPLE__)
   return (minor&0xffffff)|((major&0xff)<<24);
-#elif defined(__FreeBSD__) || defined(__OpenBSD__)
+#elif defined(__FreeBSD__) || defined(__OpenBSD__) || defined(TOYBOX_VENDOR_POSIX)
   return makedev(major, minor);
 #else
 #error
