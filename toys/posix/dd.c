@@ -67,7 +67,7 @@ static const struct dd_flag dd_oflag[] = TAGGED_ARRAY(DD_oflag,
   {"append"}, {"direct"}, {"seek_bytes"},
 );
 
-static void status()
+static void status(void)
 {
   unsigned long long now = millitime()-TT.start ? : 1, bytes = TT.bytes*1000;
 

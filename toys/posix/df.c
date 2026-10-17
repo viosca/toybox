@@ -52,7 +52,7 @@ static void print_columns(char **dsuapm)
   xputc('\n');
 }
 
-static void print_header()
+static void print_header(void)
 {
   char *dsuapm[] = {"Filesystem", "Size", "Used", "Avail", "Use%","Mounted on"};
 
