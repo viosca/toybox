@@ -1,8 +1,9 @@
 syntax: glob
 /.config*
+!/.config
 /.single*
 /change/
-/generated/
+/generated/unstripped/
 /kconfig/mconf
 /kconfig/conf
 /kconfig/*.c
